@@ -7,23 +7,23 @@ SIMPLYROLEPLAYING.foobar = {
 };
 
 /**
- * The set of Ability Scores used within the sytem.
+ * The set of Attribute scores used within the sytem.
  * @type {Object}
  */
- SIMPLYROLEPLAYING.abilities = {
-  "str": "SIMPLYROLEPLAYING.AbilityStr",
-  "dex": "SIMPLYROLEPLAYING.AbilityDex",
-  "con": "SIMPLYROLEPLAYING.AbilityCon",
-  "int": "SIMPLYROLEPLAYING.AbilityInt",
-  "wis": "SIMPLYROLEPLAYING.AbilityWis",
-  "cha": "SIMPLYROLEPLAYING.AbilityCha"
+ SIMPLYROLEPLAYING.attributes = {
+  "agi": "SIMPLYROLEPLAYING.AttributeAgi",
+  "bwn": "SIMPLYROLEPLAYING.AttributeBwn",
+  "itu": "SIMPLYROLEPLAYING.AttributeItu",
+  "knw": "SIMPLYROLEPLAYING.AttributeKnw",
+  "pre": "SIMPLYROLEPLAYING.AttributePre",
+  "will": "SIMPLYROLEPLAYING.AttributeWill"
 };
 
-SIMPLYROLEPLAYING.abilityAbbreviations = {
-  "str": "SIMPLYROLEPLAYING.AbilityStrAbbr",
-  "dex": "SIMPLYROLEPLAYING.AbilityDexAbbr",
-  "con": "SIMPLYROLEPLAYING.AbilityConAbbr",
-  "int": "SIMPLYROLEPLAYING.AbilityIntAbbr",
-  "wis": "SIMPLYROLEPLAYING.AbilityWisAbbr",
-  "cha": "SIMPLYROLEPLAYING.AbilityChaAbbr"
+SIMPLYROLEPLAYING.attributeAbbreviations = {
+  "agi": "SIMPLYROLEPLAYING.AttributeAgiAbbr",
+  "bwn": "SIMPLYROLEPLAYING.AttributeBwnAbbr",
+  "itu": "SIMPLYROLEPLAYING.AttributeItuAbbr",
+  "knw": "SIMPLYROLEPLAYING.AttributeKnwAbbr",
+  "pre": "SIMPLYROLEPLAYING.AttributePreAbbr",
+  "will": "SIMPLYROLEPLAYING.AttributeWillAbbr"
 };
