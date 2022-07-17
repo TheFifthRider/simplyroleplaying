@@ -1,23 +1,29 @@
-export const BOILERPLATE = {};
+export const SIMPLYROLEPLAYING = {};
+
+// Define constants here, such as:
+SIMPLYROLEPLAYING.foobar = {
+  'bas': 'SIMPLYROLEPLAYING.bas',
+  'bar': 'SIMPLYROLEPLAYING.bar'
+};
 
 /**
  * The set of Ability Scores used within the sytem.
  * @type {Object}
  */
- BOILERPLATE.abilities = {
-  "str": "BOILERPLATE.AbilityStr",
-  "dex": "BOILERPLATE.AbilityDex",
-  "con": "BOILERPLATE.AbilityCon",
-  "int": "BOILERPLATE.AbilityInt",
-  "wis": "BOILERPLATE.AbilityWis",
-  "cha": "BOILERPLATE.AbilityCha"
+ SIMPLYROLEPLAYING.abilities = {
+  "str": "SIMPLYROLEPLAYING.AbilityStr",
+  "dex": "SIMPLYROLEPLAYING.AbilityDex",
+  "con": "SIMPLYROLEPLAYING.AbilityCon",
+  "int": "SIMPLYROLEPLAYING.AbilityInt",
+  "wis": "SIMPLYROLEPLAYING.AbilityWis",
+  "cha": "SIMPLYROLEPLAYING.AbilityCha"
 };
 
-BOILERPLATE.abilityAbbreviations = {
-  "str": "BOILERPLATE.AbilityStrAbbr",
-  "dex": "BOILERPLATE.AbilityDexAbbr",
-  "con": "BOILERPLATE.AbilityConAbbr",
-  "int": "BOILERPLATE.AbilityIntAbbr",
-  "wis": "BOILERPLATE.AbilityWisAbbr",
-  "cha": "BOILERPLATE.AbilityChaAbbr"
+SIMPLYROLEPLAYING.abilityAbbreviations = {
+  "str": "SIMPLYROLEPLAYING.AbilityStrAbbr",
+  "dex": "SIMPLYROLEPLAYING.AbilityDexAbbr",
+  "con": "SIMPLYROLEPLAYING.AbilityConAbbr",
+  "int": "SIMPLYROLEPLAYING.AbilityIntAbbr",
+  "wis": "SIMPLYROLEPLAYING.AbilityWisAbbr",
+  "cha": "SIMPLYROLEPLAYING.AbilityChaAbbr"
 };

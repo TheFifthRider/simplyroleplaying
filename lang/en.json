@@ -1,22 +1,22 @@
 {
-  "BOILERPLATE.AbilityStr": "Strength",
-  "BOILERPLATE.AbilityCon": "Constitution",
-  "BOILERPLATE.AbilityDex": "Dexterity",
-  "BOILERPLATE.AbilityInt": "Intelligence",
-  "BOILERPLATE.AbilityWis": "Wisdom",
-  "BOILERPLATE.AbilityCha": "Charisma",
+  "SIMPLYROLEPLAYING.AbilityStr": "Strength",
+  "SIMPLYROLEPLAYING.AbilityCon": "Constitution",
+  "SIMPLYROLEPLAYING.AbilityDex": "Dexterity",
+  "SIMPLYROLEPLAYING.AbilityInt": "Intelligence",
+  "SIMPLYROLEPLAYING.AbilityWis": "Wisdom",
+  "SIMPLYROLEPLAYING.AbilityCha": "Charisma",
 
-  "BOILERPLATE.AbilityStrAbbr": "str",
-  "BOILERPLATE.AbilityConAbbr": "con",
-  "BOILERPLATE.AbilityDexAbbr": "dex",
-  "BOILERPLATE.AbilityIntAbbr": "int",
-  "BOILERPLATE.AbilityWisAbbr": "wis",
-  "BOILERPLATE.AbilityChaAbbr": "cha",
+  "SIMPLYROLEPLAYING.AbilityStrAbbr": "str",
+  "SIMPLYROLEPLAYING.AbilityConAbbr": "con",
+  "SIMPLYROLEPLAYING.AbilityDexAbbr": "dex",
+  "SIMPLYROLEPLAYING.AbilityIntAbbr": "int",
+  "SIMPLYROLEPLAYING.AbilityWisAbbr": "wis",
+  "SIMPLYROLEPLAYING.AbilityChaAbbr": "cha",
 
-  "BOILERPLATE.EffectCreate": "Create Effect",
-  "BOILERPLATE.EffectToggle": "Toggle Effect",
-  "BOILERPLATE.EffectEdit": "Edit Effect",
-  "BOILERPLATE.EffectDelete": "Delete Effect",
+  "SIMPLYROLEPLAYING.EffectCreate": "Create Effect",
+  "SIMPLYROLEPLAYING.EffectToggle": "Toggle Effect",
+  "SIMPLYROLEPLAYING.EffectEdit": "Edit Effect",
+  "SIMPLYROLEPLAYING.EffectDelete": "Delete Effect",
 
-  "BOILERPLATE.Add": "Add"
+  "SIMPLYROLEPLAYING.Add": "Add"
 }
