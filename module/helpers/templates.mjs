@@ -7,8 +7,9 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/simplyroleplaying/templates/actor/parts/actor-features.html",
-    "systems/simplyroleplaying/templates/actor/parts/actor-items.html",
-    "systems/simplyroleplaying/templates/actor/parts/actor-effects.html",
+    "systems/boilerplate/templates/actor/parts/actor-features.html",
+    "systems/boilerplate/templates/actor/parts/actor-items.html",
+    "systems/boilerplate/templates/actor/parts/actor-spells.html",
+    "systems/boilerplate/templates/actor/parts/actor-effects.html",
   ]);
 };

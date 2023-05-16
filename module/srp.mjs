@@ -1,12 +1,12 @@
 // Import document classes.
-import { SimplyRoleplayingActor } from "./documents/actor.mjs";
-import { SimplyRoleplayingItem } from "./documents/item.mjs";
+import { BoilerplateActor } from "./documents/actor.mjs";
+import { BoilerplateItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { SimplyRoleplayingActorSheet } from "./sheets/actor-sheet.mjs";
-import { SimplyRoleplayingItemSheet } from "./sheets/item-sheet.mjs";
+import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
+import { BoilerplateItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
-import { SIMPLYROLEPLAYING } from "./helpers/config.mjs";
+import { BOILERPLATE } from "./helpers/config.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -16,14 +16,14 @@ Hooks.once('init', async function() {
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.simplyroleplaying = {
-    SimplyRoleplayingActor,
-    SimplyRoleplayingItem,
+  game.boilerplate = {
+    BoilerplateActor,
+    BoilerplateItem,
     rollItemMacro
   };
 
   // Add custom constants for configuration.
-  CONFIG.SIMPLYROLEPLAYING = SIMPLYROLEPLAYING;
+  CONFIG.BOILERPLATE = BOILERPLATE;
 
   /**
    * Set an initiative formula for the system
@@ -35,14 +35,14 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = SimplyRoleplayingActor;
-  CONFIG.Item.documentClass = SimplyRoleplayingItem;
+  CONFIG.Actor.documentClass = BoilerplateActor;
+  CONFIG.Item.documentClass = BoilerplateItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("simplyroleplaying", SimplyRoleplayingActorSheet, { makeDefault: true });
+  Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("simplyroleplaying", SimplyRoleplayingItemSheet, { makeDefault: true });
+  Items.registerSheet("boilerplate", BoilerplateItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -88,12 +88,16 @@ Hooks.once("ready", async function() {
  * @returns {Promise}
  */
 async function createItemMacro(data, slot) {
+  // First, determine if this is a valid owned item.
   if (data.type !== "Item") return;
-  if (!("data" in data)) return ui.notifications.warn("You can only create macro buttons for owned Items");
-  const item = data.data;
+  if (!data.uuid.includes('Actor.') && !data.uuid.includes('Token.')) {
+    return ui.notifications.warn("You can only create macro buttons for owned Items");
+  }
+  // If it is, retrieve it based on the uuid.
+  const item = await Item.fromDropData(data);
 
-  // Create the macro command
-  const command = `game.simplyroleplaying.rollItemMacro("${item.name}");`;
+  // Create the macro command using the uuid.
+  const command = `game.boilerplate.rollItemMacro("${data.uuid}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -101,7 +105,7 @@ async function createItemMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "simplyroleplaying.itemMacro": true }
+      flags: { "boilerplate.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);
@@ -111,17 +115,23 @@ async function createItemMacro(data, slot) {
 /**
  * Create a Macro from an Item drop.
  * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemName
- * @return {Promise}
+ * @param {string} itemUuid
  */
-function rollItemMacro(itemName) {
-  const speaker = ChatMessage.getSpeaker();
-  let actor;
-  if (speaker.token) actor = game.actors.tokens[speaker.token];
-  if (!actor) actor = game.actors.get(speaker.actor);
-  const item = actor ? actor.items.find(i => i.name === itemName) : null;
-  if (!item) return ui.notifications.warn(`Your controlled Actor does not have an item named ${itemName}`);
+function rollItemMacro(itemUuid) {
+  // Reconstruct the drop data so that we can load the item.
+  const dropData = {
+    type: 'Item',
+    uuid: itemUuid
+  };
+  // Load the item from the uuid.
+  Item.fromDropData(dropData).then(item => {
+    // Determine if the item loaded and if it's an owned item.
+    if (!item || !item.parent) {
+      const itemName = item?.name ?? itemUuid;
+      return ui.notifications.warn(`Could not find item ${itemName}. You may need to delete and recreate this macro.`);
+    }
 
-  // Trigger the item roll
-  return item.roll();
+    // Trigger the item roll
+    item.roll();
+  });
 }
