@@ -36,8 +36,7 @@ export class SRPActor extends Actor {
     // Make separate methods for each Actor type (character, npc, etc.) to keep
     // things organized.
     this._prepareCharacterData(actorData);
-    this._prepareNpcData(actorData);
-  }
+}
 
   /**
    * Prepare Character type specific data
@@ -48,22 +47,11 @@ export class SRPActor extends Actor {
     // Make modifications to data here. For example:
     const systemData = actorData.system;
 
-    // Loop through ability scores, and add their modifiers to our sheet output.
-    for (let [key, ability] of Object.entries(systemData.abilities)) {
-      // Calculate the modifier using d20 rules.
-      ability.mod = Math.floor((ability.value - 10) / 2);
+    // Loop through attributes, and add their passive scores to our sheet output.
+    for (let [key, attribute] of Object.entries(systemData.attributes)) {
+      attribute.passive = 6*(systemData.level+attribute.value)
+      attribute.level = systemData.level+attribute.value
     }
-  }
-
-  /**
-   * Prepare NPC type specific data.
-   */
-  _prepareNpcData(actorData) {
-    if (actorData.type !== 'npc') return;
-
-    // Make modifications to data here. For example:
-    const systemData = actorData.system;
-    systemData.xp = (systemData.cr * systemData.cr) * 100;
   }
 
   /**
@@ -73,10 +61,16 @@ export class SRPActor extends Actor {
     const data = super.getRollData();
 
     // Prepare character roll data.
+    this._getBaseRollData(data);
     this._getCharacterRollData(data);
-    this._getNpcRollData(data);
 
     return data;
+  }
+
+  _getBaseRollData(data) {
+    if (data.attributes.level) {
+      data.level = data.attributes.level.value ?? 0;
+    }
   }
 
   /**
@@ -87,7 +81,7 @@ export class SRPActor extends Actor {
 
     // Copy the ability scores to the top level, so that rolls can use
     // formulas like `@str.mod + 4`.
-    if (data.abilities) {
+    if (data.attributes) {
       for (let [k, v] of Object.entries(data.abilities)) {
         data[k] = foundry.utils.deepClone(v);
       }
@@ -97,15 +91,6 @@ export class SRPActor extends Actor {
     if (data.attributes.level) {
       data.lvl = data.attributes.level.value ?? 0;
     }
-  }
-
-  /**
-   * Prepare NPC roll data.
-   */
-  _getNpcRollData(data) {
-    if (this.type !== 'npc') return;
-
-    // Process additional NPC data here.
   }
 
 }

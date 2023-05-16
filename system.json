@@ -2,11 +2,10 @@
   "id": "srp",
   "title": "Simply Roleplaying",
   "description": "The Simply Roleplaying system for FoundryVTT!",
-  "version": "1.2.0",
+  "version": "1.0.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "10.287",
-    "maximum": 10
+    "verified": "10.287"
   },
   "authors": [{
     "name": "Asacolips"
@@ -22,13 +21,13 @@
       "path": "lang/en.json"
     }
   ],
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "gridDistance": 1,
+  "gridUnits": "spaces",
   "primaryTokenAttribute": "health",
-  "secondaryTokenAttribute": "power",
-  "url": "",
-  "manifest": "",
-  "download": "",
+  "secondaryTokenAttribute": "ap",
+  "url": "https://simplyroleplaying.com",
+  "manifest": "https://raw.githubusercontent.com/TheFifthRider/simplyroleplaying/main/system.json",
+  "download": "https://github.com/TheFifthRider/simplyroleplaying/archive/refs/heads/main.zip",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md"
 }

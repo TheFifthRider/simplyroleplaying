@@ -1,56 +1,74 @@
 {
   "Actor": {
-    "types": ["character", "npc"],
+    "types": ["npc", "character", "obstacle"],
     "templates": {
       "base": {
-        "health": {
-          "value": 10,
-          "min": 0,
-          "max": 10
-        },
-        "power": {
-          "value": 5,
-          "min": 0,
-          "max": 5
-        },
-        "biography": ""
-      }
-    },
-    "character": {
-      "templates": ["base"],
-      "attributes": {
         "level": {
           "value": 1
-        }
+        },
+        "description": ""
       },
-      "abilities": {
-        "str": {
-          "value": 10
+      "alive": {
+        "health": {
+          "value": 12,
+          "min": 0,
+          "max": 12
         },
-        "dex": {
-          "value": 10
-        },
-        "con": {
-          "value": 10
-        },
-        "int": {
-          "value": 10
-        },
-        "wis": {
-          "value": 10
-        },
-        "cha": {
-          "value": 10
-        }
+        "injuries": [
+          {
+            "marked": false,
+            "description": ""
+          },
+          {
+            "marked": false,
+            "description": ""
+          },
+          {
+            "marked": false,
+            "description": ""
+          }
+        ]
       }
     },
     "npc": {
+      "templates": ["base", "alive"]
+    },
+    "obstacle": {
       "templates": ["base"],
-      "cr": 0
+      "toDefeat": ""
+    },
+    "character": {
+      "templates": ["base", "alive"],
+      "abilityPointName": "Ability Points",
+      "ap": {
+        "value": 2,
+        "min": 0,
+        "max": 2
+      },
+      "attributes": {
+        "agility": {
+          "value": 1
+        },
+        "brawn": {
+          "value": 1
+        },
+        "intuition": {
+          "value": 0
+        },
+        "knowledge": {
+          "value": 0
+        },
+        "presence": {
+          "value": 0
+        },
+        "will": {
+          "value": 0
+        }
+      }
     }
   },
   "Item": {
-    "types": ["item", "feature", "spell"],
+    "types": ["item", "ability"],
     "templates": {
       "base": {
         "description": ""
@@ -59,15 +77,12 @@
     "item": {
       "templates": ["base"],
       "quantity": 1,
-      "weight": 0,
-      "formula": "d20 + @str.mod + ceil(@lvl / 2)"
+      "tags": [""]
     },
-    "feature": {
-      "templates": ["base"]
-    },
-    "spell": {
+    "ability": {
       "templates": ["base"],
-      "spellLevel": 1
+      "actions": 1,
+      "cost": 0
     }
   }
 }
