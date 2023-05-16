@@ -1,9 +1,9 @@
 // Import document classes.
-import { BoilerplateActor } from "./documents/actor.mjs";
-import { BoilerplateItem } from "./documents/item.mjs";
+import { SRPActor } from "./documents/actor.mjs";
+import { SRPItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { BoilerplateActorSheet } from "./sheets/actor-sheet.mjs";
-import { BoilerplateItemSheet } from "./sheets/item-sheet.mjs";
+import { SRPActorSheet } from "./sheets/actor-sheet.mjs";
+import { SRPItemSheet } from "./sheets/item-sheet.mjs";
 // Import helper/utility classes and constants.
 import { preloadHandlebarsTemplates } from "./helpers/templates.mjs";
 import { BOILERPLATE } from "./helpers/config.mjs";
@@ -16,9 +16,9 @@ Hooks.once('init', async function() {
 
   // Add utility classes to the global game object so that they're more easily
   // accessible in global contexts.
-  game.boilerplate = {
-    BoilerplateActor,
-    BoilerplateItem,
+  game.srp = {
+    SRPActor: SRPActor,
+    SRPItem: SRPItem,
     rollItemMacro
   };
 
@@ -35,14 +35,14 @@ Hooks.once('init', async function() {
   };
 
   // Define custom Document classes
-  CONFIG.Actor.documentClass = BoilerplateActor;
-  CONFIG.Item.documentClass = BoilerplateItem;
+  CONFIG.Actor.documentClass = SRPActor;
+  CONFIG.Item.documentClass = SRPItem;
 
   // Register sheet application classes
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("boilerplate", BoilerplateActorSheet, { makeDefault: true });
+  Actors.registerSheet("srp", SRPActorSheet, { makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("boilerplate", BoilerplateItemSheet, { makeDefault: true });
+  Items.registerSheet("srp", SRPItemSheet, { makeDefault: true });
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
@@ -97,7 +97,7 @@ async function createItemMacro(data, slot) {
   const item = await Item.fromDropData(data);
 
   // Create the macro command using the uuid.
-  const command = `game.boilerplate.rollItemMacro("${data.uuid}");`;
+  const command = `game.srp.rollItemMacro("${data.uuid}");`;
   let macro = game.macros.find(m => (m.name === item.name) && (m.command === command));
   if (!macro) {
     macro = await Macro.create({
@@ -105,7 +105,7 @@ async function createItemMacro(data, slot) {
       type: "script",
       img: item.img,
       command: command,
-      flags: { "boilerplate.itemMacro": true }
+      flags: { "srp.itemMacro": true }
     });
   }
   game.user.assignHotbarMacro(macro, slot);
