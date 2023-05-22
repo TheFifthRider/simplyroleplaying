@@ -64,25 +64,46 @@
         "will": {
           "value": 0
         }
-      }
+      },
+      "earnedPotential": 0,
+      "skills": [
+        {
+          "name": "Jumping",
+          "level": 1
+        }
+      ],
+      "legacies": [
+        {
+          "name": "Boarlympic Athelete",
+          "level": 1
+        }
+      ],
+      "backgrounds": [
+        {
+          "name": "Boarlympian Extraordinaire",
+          "level": 2
+        }
+      ]
     }
   },
   "Item": {
     "types": ["item", "ability"],
     "templates": {
       "base": {
-        "description": ""
+        "description": "Flavorful flavor text",
+        "rules": "Strictly rules text"
       }
     },
     "item": {
       "templates": ["base"],
       "quantity": 1,
-      "tags": [""]
+      "tags": ["armor", "consumable", "focus", "shield", "utility", "weapon"]
     },
     "ability": {
       "templates": ["base"],
       "actions": 1,
-      "cost": 0
+      "cost": 0,
+      "aoe": null
     }
   }
 }

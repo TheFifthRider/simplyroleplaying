@@ -48,10 +48,23 @@ export class SRPActor extends Actor {
     const systemData = actorData.system;
 
     // Loop through attributes, and add their passive scores to our sheet output.
-    for (let [key, attribute] of Object.entries(systemData.attributes)) {
+    for (let [_, attribute] of Object.entries(systemData.attributes)) {
       attribute.passive = 6*(systemData.level+attribute.value)
       attribute.level = systemData.level+attribute.value
     }
+
+    let investedPotential = 0;
+    for (let [_, skill] of Object.entries(systemData.skills)) {
+      investedPotential += skill.level;
+    }
+    for (let [_, legacy] of Object.entries(systemData.legacies)) {
+      investedPotential += legacy.level;
+    }
+    for (let [_, background] of Object.entries(systemData.backgrounds)) {
+      investedPotential += 5*background.level;
+    }
+    systemData.investedPotential = investedPotential
+    systemData.remainingPotential = systemData.earnedPotential - investedPotential
   }
 
   /**
