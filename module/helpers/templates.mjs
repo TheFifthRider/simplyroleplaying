@@ -7,7 +7,7 @@
   return loadTemplates([
 
     // Actor partials.
-    "systems/srp/templates/actor/parts/actor-features.html",
+    "systems/srp/templates/actor/parts/actor-abilities.html",
     "systems/srp/templates/actor/parts/actor-items.html",
     "systems/srp/templates/actor/parts/actor-spells.html",
     "systems/srp/templates/actor/parts/actor-effects.html",

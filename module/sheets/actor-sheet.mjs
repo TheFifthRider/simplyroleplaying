@@ -69,7 +69,7 @@ export class SRPActorSheet extends ActorSheet {
   _prepareCharacterData(context) {
     // Handle attributes.
     for (let [k, v] of Object.entries(context.system.attributes)) {
-      v.label = game.i18n.localize(CONFIG.BOILERPLATE.attributes[k]) ?? k;
+      v.label = game.i18n.localize(CONFIG.SRP.attributes[k]) ?? k;
     }
   }
 

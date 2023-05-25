@@ -1,23 +1,23 @@
-export const BOILERPLATE = {};
+export const SRP = {};
 
 /**
- * The set of Ability Scores used within the sytem.
+ * The set of Attribute Scores used within the sytem.
  * @type {Object}
  */
- BOILERPLATE.abilities = {
-  "str": "BOILERPLATE.AbilityStr",
-  "dex": "BOILERPLATE.AbilityDex",
-  "con": "BOILERPLATE.AbilityCon",
-  "int": "BOILERPLATE.AbilityInt",
-  "wis": "BOILERPLATE.AbilityWis",
-  "cha": "BOILERPLATE.AbilityCha"
+SRP.attributes = {
+  "agility": "SRP.AttributeAgility",
+  "brawn": "SRP.AttributeBrawn",
+  "intuition": "SRP.AttributeIntuition",
+  "knowledge": "SRP.AttributeKnowledge",
+  "presence": "SRP.AttributePresence",
+  "will": "SRP.AttributeWill"
 };
 
-BOILERPLATE.abilityAbbreviations = {
-  "str": "BOILERPLATE.AbilityStrAbbr",
-  "dex": "BOILERPLATE.AbilityDexAbbr",
-  "con": "BOILERPLATE.AbilityConAbbr",
-  "int": "BOILERPLATE.AbilityIntAbbr",
-  "wis": "BOILERPLATE.AbilityWisAbbr",
-  "cha": "BOILERPLATE.AbilityChaAbbr"
+SRP.abilityAbbreviations = {
+  "agility": "SRP.AttributeAgilityAbbr",
+  "brawn": "SRP.AttributeBrawnAbbr",
+  "intuition": "SRP.AttributeIntuitionAbbr",
+  "knowledge": "SRP.AttributeKnowledgeAbbr",
+  "presence": "SRP.AttributePresenceAbbr",
+  "will": "SRP.AttributeWillAbbr"
 };

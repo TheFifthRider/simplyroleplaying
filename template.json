@@ -3,9 +3,7 @@
     "types": ["npc", "character", "obstacle"],
     "templates": {
       "base": {
-        "level": {
-          "value": 1
-        },
+        "level": 1,
         "description": ""
       },
       "alive": {

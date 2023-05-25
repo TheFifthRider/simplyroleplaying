@@ -1,22 +1,22 @@
 {
-  "BOILERPLATE.AbilityStr": "Strength",
-  "BOILERPLATE.AbilityCon": "Constitution",
-  "BOILERPLATE.AbilityDex": "Dexterity",
-  "BOILERPLATE.AbilityInt": "Intelligence",
-  "BOILERPLATE.AbilityWis": "Wisdom",
-  "BOILERPLATE.AbilityCha": "Charisma",
+  "SRP.AttributeAgility": "Agility",
+  "SRP.AttributeBrawn": "Brawn",
+  "SRP.AttributeIntuition": "Intuition",
+  "SRP.AttributeKnowledge": "Knowledge",
+  "SRP.AttributePresence": "Presence",
+  "SRP.AttributeWill": "Will",
 
-  "BOILERPLATE.AbilityStrAbbr": "str",
-  "BOILERPLATE.AbilityConAbbr": "con",
-  "BOILERPLATE.AbilityDexAbbr": "dex",
-  "BOILERPLATE.AbilityIntAbbr": "int",
-  "BOILERPLATE.AbilityWisAbbr": "wis",
-  "BOILERPLATE.AbilityChaAbbr": "cha",
+  "SRP.AttributeAgilityAbbr": "agi",
+  "SRP.AttributeBrawnAbbr": "bwn",
+  "SRP.AttributeIntuitionAbbr": "itu",
+  "SRP.AttributeKnowledgeAbbr": "knw",
+  "SRP.AttributePresenceAbbr": "pre",
+  "SRP.AttributeWillAbbr": "wil",
 
-  "BOILERPLATE.EffectCreate": "Create Effect",
-  "BOILERPLATE.EffectToggle": "Toggle Effect",
-  "BOILERPLATE.EffectEdit": "Edit Effect",
-  "BOILERPLATE.EffectDelete": "Delete Effect",
+  "SRP.EffectCreate": "Create Effect",
+  "SRP.EffectToggle": "Toggle Effect",
+  "SRP.EffectEdit": "Edit Effect",
+  "SRP.EffectDelete": "Delete Effect",
 
-  "BOILERPLATE.Add": "Add"
+  "SRP.Add": "Add"
 }
